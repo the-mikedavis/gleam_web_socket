@@ -1,5 +1,10 @@
-import gleam/io
+// import web_socket/frame
+import gleam/option.{Option}
 
-pub fn main() {
-  io.println("Hello from web_socket!")
+pub type Frame {
+  Text(String)
+  Binary(BitString)
+  Ping(BitString)
+  Pong(BitString)
+  Close(code: Option(Int), reason: Option(String))
 }
